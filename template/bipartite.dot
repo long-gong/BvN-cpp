@@ -1,0 +1,18 @@
+graph test {
+  overlap=false; splines=true
+  edge [style=dotted, weight=10, len=.2]
+  subgraph cluster_left {
+    {% for u in left %}
+      {{ u }}
+    {% endfor %}
+  }
+  subgraph cluster_right {
+    {% for v in right %}
+      {{ v }}
+    {% endfor %}
+  }
+  edge [style="", weight=1, len=1]
+  {% for e in edges %}
+      {{ e.source }} -- {{ e.target }}
+  {% endfor %}
+}
