@@ -3,7 +3,7 @@
 #include "matrix_utils.hpp"
 #include "mcm_wrapper.hpp"
 
-template <typename Integer = unsigned int, typename Matrix = std::vector<std::vector<Integer>>>
+template <typename Matrix>
 void stuffing(Matrix &m)
 {
     size_t n = n_rows(m);
@@ -29,7 +29,7 @@ void stuffing(Matrix &m)
     }
 
     using vi_pair_t = std::pair<unsigned int, size_t>;
-    using priority_queue_t = std::priority_queue<vi_pair_t, std::vector<vi_pair_t>, std::greater<vi_pair_t>>;
+    using priority_queue_t = std::priority_queue<vi_pair_t, std::vector<vi_pair_t>, std::greater<>>;
     priority_queue_t row_sums, col_sums;
 
     for (size_t r = 0; r < n; ++r)
@@ -61,7 +61,7 @@ void stuffing(Matrix &m)
 #endif
         if (rs == max_sum || cs == max_sum)
         {
-            assert(cs == max_sum && cs == max_sum);
+            assert(cs == max_sum && rs == max_sum);
             break;
         }
         row_sums.pop();

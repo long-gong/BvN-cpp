@@ -142,4 +142,11 @@ inline int column_sum(const imat &m, size_t c)
     return sum(m.col(c));
 }
 
+
+
+
+template <typename Matrix>
+void random_doubly_stochastic(Matrix& M, size_t m) {
+
+}
 #endif // MATRIX_UTILS_HPP
